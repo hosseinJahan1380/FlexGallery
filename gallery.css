@@ -24,6 +24,7 @@ h2{
     gap: 10px;
 }
 .filters{
+    display: flex;
     margin: 20px;
     border-bottom: 2px solid #ddd;
     padding-bottom: 10px;
@@ -32,7 +33,7 @@ h2{
 .filters button{
     background-color: #E0E0E0;
     color: #0D47A1;
-    margin-right: 12px ;
+    margin-right: 10px ;
     padding: 7px 20px;
     outline: none;
     border: none;
@@ -48,21 +49,38 @@ h2{
     transform: scale(1.1);
 }
 .images{
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 20px;
 }
 .images img{
     width: 320px;
     height: 320px;
+    top: 0;
+    left: 0;
     object-fit: cover;
+    position: absolute;
     border-radius:8px ;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
 }
 .images img:hover{
     transform: scale(1.05);
-    border: #fff;
 }
 .hidden{
     display: none;
+}
+.images .box-image{
+    position: relative;
+    border: 1px solid #ddd;
+    width: 320px;
+    height: 320px;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #f0f0f0
+}
+.filters button.active{
+    background-color: #4CAF50;
+    color: #fff; 
+    border-color: #4CAF50;
 }
