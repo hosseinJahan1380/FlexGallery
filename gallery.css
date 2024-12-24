@@ -50,16 +50,19 @@ h2{
 .images{
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    gap: 15px;
+    gap: 20px;
 }
 .images img{
     width: 320px;
     height: 320px;
     object-fit: cover;
-    border: 1px solid #333;
+    border-radius:8px ;
     transition: all 0.2s ease;
 }
 .images img:hover{
     transform: scale(1.05);
-
+    border: #fff;
+}
+.hidden{
+    display: none;
 }
