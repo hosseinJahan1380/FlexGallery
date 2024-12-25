@@ -8,12 +8,17 @@ body{
     min-height: 100vh;
     justify-content: center;
     align-items: center;
+    background: url("wood-background-1536x1024.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 h2{
     font-family: "Raleway" ,sans-serif;
     text-transform: capitalize;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     color: #0D47A1;
+    font-weight: bold
 }
 .container{
     display: flex;
@@ -24,16 +29,17 @@ h2{
     gap: 10px;
 }
 .filters{
-    display: flex;
+    display: inline-flex;
     margin: 20px;
     border-bottom: 2px solid #ddd;
     padding-bottom: 10px;
+    width: fit-content;
     
 }
 .filters button{
     background-color: #E0E0E0;
     color: #0D47A1;
-    margin-right: 10px ;
+    margin-right: 8px ;
     padding: 7px 20px;
     outline: none;
     border: none;
@@ -41,6 +47,9 @@ h2{
     font-weight: 500;
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
+}
+.filters button:last-child{
+    margin-right: 0;
 }
 .filters button:hover{
     background-color: #66BB6A;
@@ -55,29 +64,29 @@ h2{
     gap: 20px;
 }
 .images img{
-    width: 320px;
-    height: 320px;
+    width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
     object-fit: cover;
     position: absolute;
     border-radius:8px ;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 .images img:hover{
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 .hidden{
     display: none;
 }
 .images .box-image{
     position: relative;
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
     width: 320px;
     height: 320px;
     overflow: hidden;
     border-radius: 8px;
-    background-color: #f0f0f0
+    background-color: #f0f0f0;
 }
 .filters button.active{
     background-color: #4CAF50;

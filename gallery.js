@@ -13,7 +13,7 @@ filterItems.forEach( item => {
         images_box.forEach(box=>{
             const image = box.querySelector('img')
             if(image){
-                (filter ==='all' || image.dataset.category === filter) ? box.classList.remove('hidden') : box.classList.add('hidden')
+                (filter ==='all' || image.dataset.category === filter) ? box.classList.remove('hidden') : box.classList.add('hidden');
             }
         })
     })
