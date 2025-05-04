@@ -2,6 +2,13 @@
 const filterItems = document.querySelectorAll('.filters button')
 const images_box = document.querySelectorAll('.box-image')
 const all_filter = document.querySelector('.filters #all')
+const lightBoxEl = document.querySelector(".lightBox")
+const lightBoxCloseEl =document.querySelector('#close-lightBox') 
+const lightBoxPrevEl =document.querySelector('#prev-lightBox') 
+const lightBoxNextEl =document.querySelector('#next-lightBox')
+const lightBox_img = document.querySelector(".lightBox img") 
+let currentIndex = 0
+
 all_filter.classList.add('active')
 
 filterItems.forEach( item => {
@@ -17,4 +24,42 @@ filterItems.forEach( item => {
             }
         })
     })
+})
+//click on each image-box
+images_box.forEach((box , index) =>{
+    box.addEventListener("click" , ()=>{
+        currentIndex = index
+        showLightBox(currentIndex)
+    })
+})
+
+// show lightBox
+const showLightBox = (index) =>{
+    lightBoxEl.style.display = "flex"
+    lightBox_img.src = images_box[index].querySelector("img").src
+}
+// calculate the number of visible image-box
+const GetCountOfVisibleBox = () =>{
+    return number_visible_box = [...images_box].filter(box => !box.contains("hidden")).length
+}
+
+// close lightBox
+lightBoxCloseEl.addEventListener("click" , ()=>{
+    lightBoxEl.style.display = "none"
+})
+
+// click on next icon in lightbox
+lightBoxNextEl.addEventListener("click" , ()=>{
+    currentIndex = (currentIndex +1) % images_box.length
+    console.log("length :" ,GetCountOfVisibleBox() )
+    showLightBox(currentIndex)
+})
+
+
+// click on previous icon in lightBox
+lightBoxPrevEl.addEventListener("click" , ()=>{
+    currentIndex = (currentIndex -1 + images_box.length) % images_box.length
+    console.log("length :" ,GetCountOfVisibleBox() )
+    showLightBox(currentIndex)
+
 })

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="gallery.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/akar-icons-fonts"></script>
 </head>
 <body>
     <div class="container">
@@ -18,6 +19,14 @@
             <button data-filter="nature">Nature</button>
             <button data-filter="phone">Phone</button>
         </div>
+
+        <div class="lightBox">
+            <i class="ai-cross" id="close-lightBox"></i>
+            <img src="" alt="" class="lightBox-img">
+            <i class="ai-chevron-right-small" id="prev-lightBox"></i>
+            <i class="ai-chevron-left-small" id="next-lightBox"></i>
+        </div>
+
         <div class="images">
             <div class="box-image">   <img src="5599949.jpg" alt="" data-category="sea"></div>           
             <div class="box-image">   <img src="green jungle.png" alt="" data-category="nature"></div>
