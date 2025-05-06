@@ -122,15 +122,17 @@ h2{
 }
 #prev-lightBox{
     position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 4rem;
-}
-#next-lightBox{
-    position: absolute;
     left: 10px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 4rem;
+    cursor: pointer;
+}
+#next-lightBox{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 4rem;
+    cursor: pointer;
 }

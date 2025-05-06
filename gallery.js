@@ -40,7 +40,7 @@ const showLightBox = (index) =>{
 }
 // calculate the number of visible image-box
 const GetCountOfVisibleBox = () =>{
-    return number_visible_box = [...images_box].filter(box => !box.contains("hidden")).length
+    return number_visible_box = [...images_box].filter(box => !box.classList.contains("hidden")).length
 }
 
 // close lightBox
@@ -50,7 +50,8 @@ lightBoxCloseEl.addEventListener("click" , ()=>{
 
 // click on next icon in lightbox
 lightBoxNextEl.addEventListener("click" , ()=>{
-    currentIndex = (currentIndex +1) % images_box.length
+    currentIndex = (currentIndex +1) % GetCountOfVisibleBox()
+    console.log("current Index :" , currentIndex)
     console.log("length :" ,GetCountOfVisibleBox() )
     showLightBox(currentIndex)
 })
@@ -58,7 +59,8 @@ lightBoxNextEl.addEventListener("click" , ()=>{
 
 // click on previous icon in lightBox
 lightBoxPrevEl.addEventListener("click" , ()=>{
-    currentIndex = (currentIndex -1 + images_box.length) % images_box.length
+    currentIndex = (currentIndex -1 + GetCountOfVisibleBox()) % GetCountOfVisibleBox()
+    console.log("current Index :" , currentIndex)
     console.log("length :" ,GetCountOfVisibleBox() )
     showLightBox(currentIndex)
 
