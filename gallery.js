@@ -26,21 +26,23 @@ filterItems.forEach( item => {
     })
 })
 //click on each image-box
-images_box.forEach((box , index) =>{
+images_box.forEach((box ) =>{
     box.addEventListener("click" , ()=>{
-        currentIndex = index
-        showLightBox(currentIndex)
+        const visibleBoxes = getVisibleBoxes()
+        currentIndex = visibleBoxes.indexOf(box)
+        showLightBox(currentIndex , visibleBoxes)
     })
 })
 
 // show lightBox
-const showLightBox = (index) =>{
+const showLightBox = (currentIndex , visibleBoxes) =>{
     lightBoxEl.style.display = "flex"
-    lightBox_img.src = images_box[index].querySelector("img").src
+    lightBox_img.src = visibleBoxes[currentIndex].querySelector("img").src
 }
+
 // calculate the number of visible image-box
-const GetCountOfVisibleBox = () =>{
-    return number_visible_box = [...images_box].filter(box => !box.classList.contains("hidden")).length
+const getVisibleBoxes = () =>{
+    return [...images_box].filter(box => !box.classList.contains("hidden"))
 }
 
 // close lightBox
@@ -50,18 +52,15 @@ lightBoxCloseEl.addEventListener("click" , ()=>{
 
 // click on next icon in lightbox
 lightBoxNextEl.addEventListener("click" , ()=>{
-    currentIndex = (currentIndex +1) % GetCountOfVisibleBox()
-    console.log("current Index :" , currentIndex)
-    console.log("length :" ,GetCountOfVisibleBox() )
-    showLightBox(currentIndex)
+    const visibleBoxes = getVisibleBoxes()
+    currentIndex = (currentIndex +1) % visibleBoxes.length;
+    showLightBox(currentIndex , visibleBoxes)
 })
 
 
 // click on previous icon in lightBox
 lightBoxPrevEl.addEventListener("click" , ()=>{
-    currentIndex = (currentIndex -1 + GetCountOfVisibleBox()) % GetCountOfVisibleBox()
-    console.log("current Index :" , currentIndex)
-    console.log("length :" ,GetCountOfVisibleBox() )
-    showLightBox(currentIndex)
-
+    const visibleBoxes = getVisibleBoxes()
+    currentIndex = (currentIndex -1 + visibleBoxes.length) % visibleBoxes.length
+    showLightBox(currentIndex , visibleBoxes)
 })
